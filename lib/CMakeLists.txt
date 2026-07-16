@@ -1,11 +1,17 @@
 # CMakeLists.txt - настройки сборки библиотеки.
-#Зубехин Никита
+# Зубехин Никита
 # МК-101
 
-get_all_sources(${CMAKE_CURRENT_SOURCE_DIR} LIB_SOURCES)
+
+get_all_sources(${CMAKE_CURRENT_SOURCE_DIR}/src LIB_SOURCES)
 
 
-add_library(hex_lib ${LIB_SOURCES})
+file(GLOB INCLUDE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 
 
-target_include_directories(hex_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(hex_core_lib ${LIB_SOURCES} ${INCLUDE_FILES})
+
+
+target_include_directories(hex_core_lib PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
