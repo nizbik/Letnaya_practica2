@@ -3,6 +3,10 @@
 # МК-101
 
 
+# CMakeLists.txt - настройки сборки библиотеки.
+# Зубехин Никита
+# МК-101
+
 get_all_sources(${CMAKE_CURRENT_SOURCE_DIR}/src LIB_SOURCES)
 
 
