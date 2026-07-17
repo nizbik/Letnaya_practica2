@@ -38,10 +38,6 @@ printf("%08lx  ", line_offset);
 int group_size = opts->group_size;
 if (group_size <= 0) group_size = 1;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 56a949e6d708c18ea62efa916986e9b321496de6
 for (int i = 0; i < bytes_read; i += group_size) {
 
 int end = (i + group_size <= bytes_read) ? i + group_size : bytes_read;
@@ -51,11 +47,7 @@ for (int j = end - 1; j >= i; j--) {
 print_byte_hex(buffer[j]);
 }
 
-<<<<<<< HEAD
-printf(" "); 
-=======
 printf(" ");  
->>>>>>> 56a949e6d708c18ea62efa916986e9b321496de6
 }
 
 printf("\n");
