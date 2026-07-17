@@ -38,17 +38,17 @@ printf("%08lx  ", line_offset);
 int group_size = opts->group_size;
 if (group_size <= 0) group_size = 1;
 
-// Вывод данных группами
+
 for (int i = 0; i < bytes_read; i += group_size) {
-// Определяем конец текущей группы
+
 int end = (i + group_size <= bytes_read) ? i + group_size : bytes_read;
 
-// Вывод группы в обратном порядке (little-endian)
+
 for (int j = end - 1; j >= i; j--) {
 print_byte_hex(buffer[j]);
 }
 
-printf(" ");  // Пробел между группами
+printf(" ");  
 }
 
 printf("\n");
