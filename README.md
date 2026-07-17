@@ -26,18 +26,3 @@ build\app\Release\letnaya_practica_2.exe -i input.bin -o 50 -l 100
 
 Обработка всех файлов в директории:
 build\app\Release\letnaya_practica_2.exe -d ./data_folder -g 2
-
-Letnaya_practica2/
-├── CMakeLists.txt          # Корневой файл CMake
-├── cmake/
-│   └── MyFunctions.cmake   # Вспомогательные функции
-├── lib/
-│   ├── CMakeLists.txt      # Настройки библиотеки
-│   ├── include/            # Заголовочные файлы
-│   └── src/                # Исходный код библиотеки
-├── app/
-│   ├── CMakeLists.txt      # Настройки программы
-│   ── src/                # Исходный код программы
-└── tests/
-    ├── CMakeLists.txt      # Настройки тестов
-    └── test_main.c         # Файл тестов
