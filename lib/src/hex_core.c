@@ -34,20 +34,26 @@ print_char_safe(data[i]);
 static void print_formatted_line(const HexOptions *opts, int line_idx, long line_offset, const unsigned char *buffer, int bytes_read) {
 if (!opts->format_str) {
 printf("%08lx  ", line_offset);
-
-int group_size = opts->group_size;
-if (group_size <= 0) group_size = 1;
-
-for (int i = 0; i < bytes_read; i += group_size) {
-
-int end = (i + group_size <= bytes_read) ? i + group_size : bytes_read;
-
-
-for (int j = end - 1; j >= i; j--) {
-print_byte_hex(buffer[j]);
+for (int i = 0; i < bytes_read; i++) {
+print_byte_hex(buffer[i]);
+printf(" ");
 }
 
-printf(" ");  
+
+if (opts->group_size == 1) {
+int remaining = opts->items_per_line - bytes_read;
+for (int i = 0; i < remaining; i++) {
+printf("   "); 
+}
+
+printf("|"); 
+
+
+for (int i = 0; i < bytes_read; i++) {
+print_char_safe(buffer[i]);
+}
+
+printf("|");
 }
 
 printf("\n");
